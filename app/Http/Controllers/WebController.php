@@ -28,6 +28,11 @@ class WebController extends Controller
 //        }
         return view('admin', compact('red', 'array', 'contact'));
     }
+    public function delcontact($id)
+    {
+        DB::table('contact')->where('id', '=', $id)->delete();
+        return redirect()->back()->with('success', 'Заявка удалена');
+    }
     public function addCategory(Request $request)
     {
         DB::table('category')->insert(['name'=>$request->nameCategory]);
