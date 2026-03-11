@@ -290,10 +290,10 @@
                             <div class="col-12 col-lg-4">
                                 <div class="testdrive-actions">
                                     <form method="POST" action="{{ route('delcontact', ['id' => $testdrive->id]) }}">
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="btn btn-danger">Удалить</button>
-</form>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Удалить</button>
+                                    </form>
                                 </div>
                             </div>
 
