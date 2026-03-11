@@ -19,6 +19,7 @@ Route::get('/home', [App\Http\Controllers\WebController::class, 'index'])->name(
 
 Route::get('/contact', [App\Http\Controllers\WebController::class, 'contact'])->name('contact');
 Route::post('/addcontact', [App\Http\Controllers\WebController::class, 'addcontact'])->name('addcontact');
+Route::delete('/delcontact', [App\Http\Controllers\WebController::class, 'delcontact'])->name('delcontact');
 
 Route::get('/admin', [App\Http\Controllers\WebController::class, 'admin'])->name('admin');
 
