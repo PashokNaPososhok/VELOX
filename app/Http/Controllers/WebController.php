@@ -19,13 +19,6 @@ class WebController extends Controller
         $array = DB::table('products')->get();
         $red = DB::table('category')->get();
         $contact = DB::table('contact')->get();
-//        if(Auth::user()->id_role==2){
-//            $categories = DB::table('category')->get();
-//            return view('admin',compact('categories'));
-//        }
-//        else {
-//            return redirect('/');
-//        }
         return view('admin', compact('red', 'array', 'contact'));
     }
     public function delcontact($id)
