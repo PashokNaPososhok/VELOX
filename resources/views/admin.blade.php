@@ -218,7 +218,6 @@
         color: #1f2937;
         line-height: 1.7;
         word-break: break-word;
-        white-space: pre-wrap;
     }
 
     .testdrive-actions{
@@ -290,10 +289,11 @@
 
                             <div class="col-12 col-lg-4">
                                 <div class="testdrive-actions">
-                                    <form method="POST" action="#">
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger">Удалить</button>
-                                    </form>
+                                    <form method="POST" action="{{ route('delcontact', ['id' => $testdrive->id]) }}">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-danger">Удалить</button>
+</form>
                                 </div>
                             </div>
 
