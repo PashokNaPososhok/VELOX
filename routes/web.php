@@ -19,14 +19,14 @@ Route::get('/home', [App\Http\Controllers\WebController::class, 'index'])->name(
 
 Route::get('/contact', [App\Http\Controllers\WebController::class, 'contact'])->name('contact');
 Route::post('/addcontact', [App\Http\Controllers\WebController::class, 'addcontact'])->name('addcontact');
-Route::delete('/delcontact', [App\Http\Controllers\WebController::class, 'delcontact'])->name('delcontact');
 
 Route::get('/admin', [App\Http\Controllers\WebController::class, 'admin'])->name('admin');
+Route::delete('/delCategory/{id}', [App\Http\Controllers\WebController::class, 'delCategory'])->name('delCategory');
+Route::delete('/delcontact/{id}', [App\Http\Controllers\WebController::class, 'delcontact'])->name('delcontact');
 
 Route::get('/profile', [App\Http\Controllers\WebController::class, 'profile'])->name('profile');
 
 Route::post('/addCategory', [App\Http\Controllers\WebController::class, 'addCategory'])->name('addCategory');
-Route::delete('/delCategory', [App\Http\Controllers\WebController::class, 'delCategory'])->name('delCategory');
 Route::post('/addProducts', [App\Http\Controllers\WebController::class, 'addProducts'])->name('addProducts');
 Route::delete('/delProducts/{id}', [App\Http\Controllers\WebController::class, 'delProducts'])->name('delProducts');
 Route::get('/editProductsView/{id}', [App\Http\Controllers\WebController::class, 'editProductsView'])->name('editProductsView');
