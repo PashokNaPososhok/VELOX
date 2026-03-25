@@ -280,7 +280,7 @@
 
                                 <div class="testdrive-comment mt-3">
                                     @if($testdrive->comment)
-                                        {{ $testdrive->comment }}
+                                        {{ ltrim($testdrive->comment) }}
                                     @else
                                         <span class="text-muted">Комментарий не указан</span>
                                     @endif
@@ -290,10 +290,10 @@
                             <div class="col-12 col-lg-4">
                                 <div class="testdrive-actions">
                                     <form method="POST" action="{{ route('delcontact', ['id' => $testdrive->id]) }}">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Удалить</button>
-                                    </form>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Удалить</button>
+                                </form>
                                 </div>
                             </div>
 
@@ -348,7 +348,7 @@
                 </tr>
                 </thead>
                 @foreach ($red as $b)
-                    <form method="post" action="{{route('delCategory')}}">
+                    <form method="post" action="{{route('delCategory', ['id' => $b->id])}}">
                         @csrf
                         @method('DELETE')
                         <tbody>
