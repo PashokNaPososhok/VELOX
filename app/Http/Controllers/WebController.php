@@ -16,20 +16,20 @@ class WebController extends Controller
     }
     public function admin()
     {
+        if (!Auth::check() || Auth::user()->role_id != 2) {
+            return redirect('/');
+        }
+    
         $array = DB::table('products')->get();
         $red = DB::table('category')->get();
         $contact = DB::table('contact')->get();
-        return view('admin', compact('red', 'array', 'contact'));
+
+    return view('admin', compact('red', 'array', 'contact'));
     }
     public function delcontact($id)
     {
         DB::table('contact')->where('id', '=', $id)->delete();
         return redirect()->back()->with('success', 'Заявка удалена');
-    }
-    public function addCategory(Request $request)
-    {
-        DB::table('category')->insert(['name'=>$request->nameCategory]);
-        return redirect()->back()->with('messageAddCategory','Category added seccessfully');
     }
     public function delCategory(Request $request)
     {
@@ -132,7 +132,7 @@ class WebController extends Controller
         'date' => $request->date,
         'time' => $request->time,
         'contact_method' => $request->contact_method,
-        'comment' => $request->comment,
+        'comment' => trim($request->comment),
     ]);
 
     return redirect()->back()->with('success', 'Заявка на тест-драйв успешно отправлена');
