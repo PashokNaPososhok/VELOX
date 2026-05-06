@@ -9,6 +9,8 @@
     <title>VELOX</title>
 
     <script src="{{ asset('assets/js/bootstrap.bundle.js') }}" defer></script>
+    
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/iconb.png') }}">
 
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -246,7 +248,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('catalog') }}">{{ __('Каталог') }}</a>
+                            <a class="nav-link" href="{{ route('catalog') }}">{{ __('Аренда') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('podbor') }}">Подбор аренды</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('magazin') }}">Где находимся</a>
@@ -312,8 +317,8 @@
                                 <span class="footer-logo-text">VELOX</span>
                             </div>
                             <p class="footer-text">
-                                Современный автосалон с удобным каталогом, прозрачными условиями и автомобилями,
-                                которые приятно выбирать.
+                                Сервис аренды автомобилей с удобным каталогом, прозрачными условиями и автомобилями,
+                                которые приятно брать на нужный срок.
                             </p>
                         </div>
                     </div>
@@ -322,7 +327,7 @@
                         <h6 class="footer-title">Навигация</h6>
                         <ul class="footer-links">
                             <li><a href="{{ url('/') }}">Главная</a></li>
-                            <li><a href="{{ route('catalog') }}">Каталог</a></li>
+                            <li><a href="{{ route('catalog') }}">Аренда</a></li>
                             <li><a href="{{ route('magazin') }}">Контакты</a></li>
                         </ul>
                     </div>
@@ -339,7 +344,7 @@
                     <div class="col-12 col-lg-3">
                         <h6 class="footer-title">VELOX</h6>
                         <p class="footer-text mb-2">
-                            Твой следующий автомобиль начинается с VELOX.
+                            Твоя следующая поездка начинается с VELOX.
                         </p>
                         <div class="footer-note">
                             © {{ date('Y') }} VELOX. Все права защищены.
