@@ -218,6 +218,7 @@
         color: #1f2937;
         line-height: 1.7;
         word-break: break-word;
+        white-space: pre-wrap;
     }
 
     .testdrive-actions{
@@ -253,7 +254,7 @@
     </div>
 
     <div class="admin-section-title">
-        <h1>Заявки на тест-драйв</h1>
+        <h1>Заявки на аренду</h1>
     </div>
 
     <div class="admin-panel">
@@ -267,7 +268,7 @@
                                 <div class="testdrive-main">
                                     <div class="testdrive-name">{{ $testdrive->name }}</div>
                                     <div class="testdrive-phone">{{ $testdrive->phone }}</div>
-                                    <div class="testdrive-car">{{ $testdrive->car }}</div>
+                                    <div class="testdrive-car">Авто: {{ $testdrive->car }}</div>
                                 </div>
                             </div>
 
@@ -276,6 +277,15 @@
                                     <div class="info-chip">Дата: {{ $testdrive->date }}</div>
                                     <div class="info-chip">Время: {{ $testdrive->time }}</div>
                                     <div class="info-chip">Связь: {{ $testdrive->contact_method }}</div>
+                                    @if(isset($testdrive->user_login) && $testdrive->user_login)
+                                        <div class="info-chip">Аккаунт: {{ $testdrive->user_login }}</div>
+                                    @endif
+                                    @if(isset($testdrive->user_email) && $testdrive->user_email)
+                                        <div class="info-chip">{{ $testdrive->user_email }}</div>
+                                    @endif
+                                    @if(isset($testdrive->status) && $testdrive->status)
+                                        <div class="info-chip">Статус: {{ $testdrive->status }}</div>
+                                    @endif
                                 </div>
 
                                 <div class="testdrive-comment mt-3">
@@ -304,74 +314,55 @@
         </div>
     </div>
 
-    <div class="admin-section-title">
-        <h1>Публикация категории</h1>
-    </div>
+<div class="admin-section-title">
+    <h1>Редактор категорий аренды</h1>
+</div>
 
-    <div class="admin-panel">
-        <div class="table-wrap">
-            <table class="table">
-                <thead>
+<div class="admin-panel">
+    <div class="table-wrap">
+        <table class="table">
+            <thead>
                 <tr>
                     <th scope="col">Название</th>
-                    <th scope="col"></th>
+                    <th scope="col">Действие</th>
                 </tr>
-                </thead>
-                <form method="post" action="{{route('addCategory')}}">
-                    @csrf
-                    <tbody>
+            </thead>
+
+            <tbody>
+                @foreach ($red as $b)
                     <tr>
+                        <td>{{ $b->name }}</td>
+
                         <td>
-                            <input type="text" class="form-control" id="nameCategory" name="nameCategory" aria-describedby="basic-addon3 basic-addon4" required>
-                        </td>
-                        <td>
-                            <button class="btn btn-primary">Опубликовать</button>
+                            <form method="POST" action="{{ route('delCategory') }}" onsubmit="return confirm('Удалить категорию?')">
+                                @csrf
+                                @method('DELETE')
+
+                                <input type="hidden" name="id" value="{{ $b->id }}">
+
+                                <button type="submit" class="btn btn-danger">
+                                    Удалить
+                                </button>
+                            </form>
                         </td>
                     </tr>
-                    </tbody>
-                </form>
-            </table>
-        </div>
-    </div>
-
-    <div class="admin-section-title">
-        <h1>Редактор категории</h1>
-    </div>
-
-    <div class="admin-panel">
-        <div class="table-wrap">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Название</th>
-                    <th scope="col">Редактировать</th>
-                </tr>
-                </thead>
-                @foreach ($red as $b)
-                    <form method="post" action="{{route('delCategory', ['id' => $b->id])}}">
-                        @csrf
-                        @method('DELETE')
-                        <tbody>
-                        <tr>
-                            <th scope="row">{{$b->name}}</th>
-                            <td><button type="submit" class="btn btn-danger">Удалить</button></td>
-                        </tr>
-                        </tbody>
-                    </form>
                 @endforeach
-            </table>
-        </div>
+            </tbody>
+        </table>
+
+        <p class="text-success mt-2">{{ session('messageDelCategory') }}</p>
     </div>
+</div>
 
     <div class="admin-section-title">
-        <h1>Добавление товара</h1>
+        <h1>Добавление автомобиля в аренду</h1>
     </div>
 
     <form class="mb-5" method="post" action="{{route('addProducts')}}" enctype="multipart/form-data">
     @csrf
     <div class="card product-card">
         <div class="card-body">
-            <h5 class="card-title">Добавление товара</h5>
+            <h5 class="card-title">Добавление автомобиля в аренду</h5>
 
             <div class="product-grid">
                 <div class="mb-3">
@@ -389,7 +380,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="costProducts" class="form-label">Цена</label>
+                    <label for="costProducts" class="form-label">Цена за сутки</label>
                     <input type="text" class="form-control" id="costProducts" name="costProducts" required>
                 </div>
 
@@ -406,6 +397,105 @@
                 <div class="mb-3">
                     <label for="modelProducts" class="form-label">Название модели</label>
                     <input type="text" class="form-control" id="modelProducts" name="modelProducts" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="mileageProducts" class="form-label">Пробег, км</label>
+                    <input type="text" class="form-control" id="mileageProducts" name="mileageProducts" placeholder="Например, 45000" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="segment" class="form-label">Сегмент</label>
+                    <select class="form-select" id="segment" name="segment" required>
+                        <option>Бюджет</option>
+                        <option selected>Комфорт</option>
+                        <option>Бизнес-класс</option>
+                        <option>Для компании</option>
+                        <option>Для путешествия</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="color" class="form-label">Цвет</label>
+                    <input type="text" class="form-control" id="color" name="color" placeholder="Например, черный" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="condition_percent" class="form-label">Состояние, %</label>
+                    <input type="number" class="form-control" id="condition_percent" name="condition_percent" min="1" max="100" value="90" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="body_type" class="form-label">Тип кузова</label>
+                    <input type="text" class="form-control" id="body_type" name="body_type" placeholder="Седан, кроссовер, минивэн">
+                </div>
+
+                <div class="mb-3">
+                    <label for="transmission" class="form-label">Коробка</label>
+                    <select class="form-select" id="transmission" name="transmission" required>
+                        <option selected>Автомат</option>
+                        <option>Робот</option>
+                        <option>Вариатор</option>
+                        <option>Механика</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="fuel_type" class="form-label">Топливо</label>
+                    <select class="form-select" id="fuel_type" name="fuel_type" required>
+                        <option selected>Бензин</option>
+                        <option>Дизель</option>
+                        <option>Гибрид</option>
+                        <option>Электро</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="drive_type" class="form-label">Привод</label>
+                    <select class="form-select" id="drive_type" name="drive_type" required>
+                        <option selected>Передний</option>
+                        <option>Задний</option>
+                        <option>Полный</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="seats" class="form-label">Количество мест</label>
+                    <input type="number" class="form-control" id="seats" name="seats" value="5" min="1" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="deposit" class="form-label">Залог</label>
+                    <input type="number" class="form-control" id="deposit" name="deposit" value="10000" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="availability_status" class="form-label">Статус</label>
+                    <select class="form-select" id="availability_status" name="availability_status" required>
+                        <option selected>Свободен</option>
+                        <option>Занят</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="engine_power" class="form-label">Мощность</label>
+                    <input type="text" class="form-control" id="engine_power" name="engine_power" placeholder="Например, 249 л.с.">
+                </div>
+
+                <div class="mb-3">
+                    <label for="engine_volume" class="form-label">Объем двигателя</label>
+                    <input type="text" class="form-control" id="engine_volume" name="engine_volume" placeholder="Например, 2.0 л">
+                </div>
+
+                <div class="mb-3">
+                    <label for="fuel_consumption" class="form-label">Расход</label>
+                    <input type="text" class="form-control" id="fuel_consumption" name="fuel_consumption" placeholder="Например, 8.5 л/100 км">
+                </div>
+
+
+                <div class="mb-3 full-width">
+                    <label for="descriptionProducts" class="form-label">Описание аренды</label>
+                    <textarea class="form-control" id="descriptionProducts" name="descriptionProducts" rows="4" placeholder="Кратко опишите автомобиль и для каких поездок он подходит" required></textarea>
                 </div>
 
                 <div class="mb-3 full-width">

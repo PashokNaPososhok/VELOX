@@ -116,9 +116,9 @@
 <div class="container contact-wrap">
 
     <div class="contact-header">
-        <h1 class="contact-title">Контакты</h1>
+        <h1 class="contact-title">Контакты VELOX Rent</h1>
         <p class="contact-subtitle mx-auto">
-            Приезжайте в салон, звоните или пишите. Подскажем по наличию, кредиту и тест-драйву.
+            Приезжайте в офис VELOX, звоните или пишите. Подскажем по наличию, тарифам и условиям аренды.
         </p>
     </div>
 

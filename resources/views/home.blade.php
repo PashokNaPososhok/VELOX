@@ -31,21 +31,21 @@
     .hero-content{
         position:absolute;
         inset:0;
-        z-index: 3;
+        z-index:3;
         display:flex;
         align-items:center;
-        padding: 24px;
+        padding:24px;
     }
 
     .hero-card{
-        max-width: 720px;
-        padding: 28px 28px;
-        border-radius: 18px;
+        max-width:720px;
+        padding:28px 28px;
+        border-radius:18px;
         backdrop-filter: blur(10px);
         background: rgba(10,12,16,.55);
         border: 1px solid rgba(255,255,255,.12);
-        color: #fff;
-        text-align: left;
+        color:#fff;
+        text-align:left;
         box-shadow: 0 14px 40px rgba(0,0,0,.28);
     }
 
@@ -53,100 +53,82 @@
         display:flex;
         gap:10px;
         align-items:center;
-        flex-wrap: wrap;
-        margin-bottom: 10px;
+        flex-wrap:wrap;
+        margin-bottom:10px;
     }
 
     .hero-pill{
         display:inline-flex;
         align-items:center;
         gap:8px;
-        padding: 7px 12px;
-        border-radius: 999px;
+        padding:7px 12px;
+        border-radius:999px;
         background: rgba(255,255,255,.10);
         border: 1px solid rgba(255,255,255,.14);
-        font-weight: 600;
-        font-size: .95rem;
+        font-weight:600;
+        font-size:.95rem;
     }
 
     .hero-card h1{
-        font-size: 2.7rem;
-        font-weight: 900;
-        letter-spacing: .2px;
-        margin: 10px 0 10px;
-        line-height: 1.1;
+        font-size:2.7rem;
+        font-weight:900;
+        letter-spacing:.2px;
+        margin:10px 0 10px;
+        line-height:1.1;
     }
 
     .hero-card p{
-        font-size: 1.12rem;
-        opacity: .92;
-        line-height: 1.7;
-        margin-bottom: 18px;
-        max-width: 56ch;
+        font-size:1.12rem;
+        opacity:.92;
+        line-height:1.7;
+        margin-bottom:18px;
+        max-width:56ch;
     }
 
     .hero-actions .btn{
-        border-radius: 999px;
-        padding: 10px 18px;
-        font-weight: 700;
+        border-radius:999px;
+        padding:10px 18px;
+        font-weight:700;
     }
 
     .hero-actions .btn-outline-light{
-        border-width: 2px;
+        border-width:2px;
     }
 
     .hero-stats{
         display:flex;
         gap:14px;
-        flex-wrap: wrap;
-        margin-top: 16px;
+        flex-wrap:wrap;
+        margin-top:16px;
     }
 
     .stat{
-        padding: 12px 14px;
-        border-radius: 14px;
+        padding:12px 14px;
+        border-radius:14px;
         background: rgba(255,255,255,.08);
         border: 1px solid rgba(255,255,255,.12);
-        min-width: 150px;
+        min-width:150px;
     }
 
     .stat .num{
-        font-size: 1.25rem;
-        font-weight: 900;
-        line-height: 1.2;
+        font-size:1.25rem;
+        font-weight:900;
+        line-height:1.2;
     }
 
     .stat .txt{
-        font-size: .92rem;
-        opacity: .85;
-    }
-
-    .carousel-indicators [data-bs-target]{
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        margin: 0 6px;
-        opacity: .65;
-    }
-
-    .carousel-indicators .active{
-        opacity: 1;
-        transform: scale(1.1);
-    }
-
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon{
-        filter: drop-shadow(0 8px 16px rgba(0,0,0,.45));
+        font-size:.92rem;
+        opacity:.85;
     }
 
     .section-card{
-        margin: 60px 0 28px;
-        border-radius: 18px;
-        background: #ffffff;
+        margin:60px 0 28px;
+        border-radius:18px;
+        background:#ffffff;
         box-shadow: 0 14px 40px rgba(0,0,0,.08);
-        padding: 44px 34px;
-        position: relative;
-        overflow: hidden;
+        padding:44px 34px;
+        position:relative;
+        overflow:hidden;
     }
 
     .section-card::before{
@@ -154,51 +136,77 @@
         position:absolute;
         top:-160px;
         right:-160px;
-        width: 320px;
-        height: 320px;
+        width:320px;
+        height:320px;
         background: radial-gradient(circle, rgba(13,110,253,.22), rgba(13,110,253,0));
-        border-radius: 50%;
+        border-radius:50%;
     }
 
     .section-card h2{
-        font-weight: 900;
-        margin-bottom: 14px;
+        font-weight:900;
+        margin-bottom:14px;
     }
 
     .section-card .lead{
         color:#444;
-        line-height: 1.85;
-        font-size: 1.08rem;
-        max-width: 900px;
-        margin: 0 auto;
+        line-height:1.85;
+        font-size:1.08rem;
+        max-width:900px;
+        margin:0 auto;
     }
 
     .feature-card{
-        border-radius: 16px;
-        border: 1px solid rgba(0,0,0,.06);
-        padding: 18px 16px;
-        background: #f8f9fa;
-        height: 100%;
+        border-radius:16px;
+        border:1px solid rgba(0,0,0,.06);
+        padding:18px 16px;
+        background:#f8f9fa;
+        height:100%;
         transition: transform .15s ease, box-shadow .15s ease;
     }
-.feature-card:hover{
+
+    .feature-card:hover{
         transform: translateY(-3px);
         box-shadow: 0 12px 25px rgba(0,0,0,.08);
     }
 
     .feature-card h5{
-        margin-bottom: 8px;
-        font-weight: 800;
+        margin-bottom:8px;
+        font-weight:800;
     }
 
     .feature-card .text-muted{
-        line-height: 1.6;
+        line-height:1.6;
     }
 
     @media (max-width: 992px){
-        .home-hero .carousel-item img{ height: 460px; }
-        .hero-card h1{ font-size: 2.1rem; }
-        .stat{ min-width: 140px; }
+        .home-hero .carousel-item img{ height:460px; }
+        .hero-card{ max-width:100%; }
+        .hero-card h1{ font-size:2.1rem; }
+        .stat{ min-width:140px; }
+    }
+
+    @media (max-width: 768px){
+        .home-hero .carousel-item img{ height:620px; }
+        .hero-content{ align-items:flex-end; padding:16px; }
+        .hero-card{ width:100%; padding:20px 18px; border-radius:16px; }
+        .hero-top{ gap:8px; margin-bottom:8px; }
+        .hero-pill{ font-size:.8rem; padding:6px 10px; }
+        .hero-card h1{ font-size:1.65rem; line-height:1.2; margin:8px 0; }
+        .hero-card p{ font-size:.96rem; line-height:1.55; margin-bottom:14px; }
+        .hero-actions{ display:flex; flex-direction:column; gap:10px; }
+        .hero-actions .btn{ width:100%; padding:12px 16px; }
+        .hero-stats{ display:grid; grid-template-columns:1fr; gap:10px; }
+        .stat{ min-width:unset; width:100%; }
+        .section-card{ margin:40px 0 20px; padding:28px 18px; }
+        .section-card h2{ font-size:1.6rem; }
+        .section-card .lead{ font-size:1rem; line-height:1.75; }
+    }
+
+    @media (max-width: 480px){
+        .home-hero .carousel-item img{ height:680px; }
+        .hero-card h1{ font-size:1.45rem; }
+        .hero-card p{ font-size:.92rem; }
+        .hero-pill{ font-size:.76rem; }
     }
 </style>
 
@@ -206,12 +214,11 @@
 
     <div class="home-hero">
         <div id="carouselExampleDark" class="carousel carousel-dark slide">
-
             <div class="carousel-inner">
                 @foreach($array as $a)
-                        <div class="carousel-item active" data-bs-interval="10000">
-                            <img src="../public/{{$a->image}}" class="d-block w-100" alt="...">
-                        </div>
+                    <div class="carousel-item @if($loop->first) active @endif" data-bs-interval="10000">
+                        <img src="{{ asset(ltrim($a->image, '/')) }}" class="d-block w-100" alt="Автомобиль VELOX">
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -219,64 +226,65 @@
         <div class="hero-content">
             <div class="hero-card">
                 <div class="hero-top">
-                    <span class="hero-pill">🚗 Автосалон</span>
-                    <span class="hero-pill">✅ Проверенные авто</span>
-                    <span class="hero-pill">💳 Кредит/лизинг</span>
+                    <span class="hero-pill">🚗 Аренда авто</span>
+                    <span class="hero-pill">✅ Проверенный парк</span>
+                    <span class="hero-pill">🟢 Свободен / занят</span>
                 </div>
 
-                <h1>Автомобили, которые приятно выбирать</h1>
+                <h1>Автомобиль на день, неделю или важную поездку</h1>
                 <p>
-                    Подбор авто под бюджет, прозрачная история, помощь с оформлением.
-                    Приезжайте на тест-драйв или смотрите каталог прямо сейчас.
+                    VELOX помогает быстро выбрать автомобиль под задачу: город, бизнес-встреча,
+                    поездка с друзьями или корпоративная аренда. Всё сосредоточено на удобной аренде.
                 </p>
 
                 <div class="hero-actions d-flex gap-2 flex-wrap">
-                    <a href="{{ url('/catalog') }}" class="btn btn-light">Каталог</a>
-                    <a href="{{ url('/contact') }}" class="btn btn-outline-light">Записаться на тест-драйв</a>
+                    <a href="{{ url('/catalog') }}" class="btn btn-light">Выбрать авто</a>
+                    <a href="{{ url('/podbor') }}" class="btn btn-outline-light">Индивидуальный подбор</a>
                 </div>
 
                 <div class="hero-stats">
                     <div class="stat">
-                        <div class="num">100+</div>
-                        <div class="txt">авто в наличии</div>
+                        <div class="num">статус</div>
+                        <div class="txt">видно в карточке</div>
                     </div>
                     <div class="stat">
                         <div class="num">24/7</div>
-                        <div class="txt">поддержка</div>
+                        <div class="txt">поддержка клиента</div>
                     </div>
                     <div class="stat">
-                        <div class="num">0 ₽</div>
-                        <div class="txt">проверка авто</div>
+                        <div class="num">95%</div>
+                        <div class="txt">среднее состояние парка</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<div id="onas" class="section-card">
-        <h2>О нас</h2>
+
+    <div id="onas" class="section-card">
+        <h2>О VELOX Rent</h2>
         <p class="lead">
-            Мы специализируемся на продаже и подборе автомобилей.
-            У нас честные условия, понятные документы и аккуратная предпродажная подготовка.
-            Поможем с трейд-ин, кредитом и постановкой на учёт.
+            Мы развиваем сервис аренды автомобилей: понятные тарифы, аккуратные машины,
+            быстрый подбор под бюджет и цель поездки. В карточках авто теперь есть больше характеристик,
+            а состояние отображается в процентах, почти как в игре.
         </p>
 
         <div class="row g-3 mt-3">
             <div class="col-md-4">
                 <div class="feature-card">
-                    <h5>🧾 Прозрачная история</h5>
-                    <div class="text-muted">Проверяем авто по базам и показываем результаты.</div>
+                    <h5>🧾 Честный тариф</h5>
+                    <div class="text-muted">Стоимость показывается за сутки, чтобы проще сравнивать автомобили.</div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="feature-card">
-                    <h5>🔧 Диагностика перед покупкой</h5>
-                    <div class="text-muted">Осмотр, тест-драйв и рекомендации по состоянию.</div>
+                    <h5>🎮 Состояние в процентах</h5>
+                    <div class="text-muted">Процент учитывает внешний вид, пробег, возраст и подготовку автомобиля.</div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="feature-card">
-                    <h5>💳 Удобное оформление</h5>
-                    <div class="text-muted">Кредит/лизинг, трейд-ин, помощь с документами.</div>
+                    <h5>🎯 Подбор под задачу</h5>
+                    <div class="text-muted">Можно выбрать сегмент, цвет, состояние, коробку и формат поездки.</div>
                 </div>
             </div>
         </div>
